@@ -1,4 +1,4 @@
-# dotfiles
+# ea → dotfiles
 
 This directory contains the dotfiles for my system
 
@@ -6,12 +6,12 @@ This directory contains the dotfiles for my system
 
 Ensure you have the following installed on your system
 
-### Git
+### git
 ```
 brew install git
 ```
 
-### Stow
+### stow
 ```
 brew install stow
 ```
@@ -28,4 +28,4 @@ then use GNU stow to create symlinks
 $ stow .
 ```
 
-https://www.youtube.com/watch?v=y6XCebnB9gs&t=54s
+info → https://www.youtube.com/watch?v=y6XCebnB9gs&t=54s
