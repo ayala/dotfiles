@@ -1,0 +1,30 @@
+# Load with --load-config examples/2
+# Note that you must replace the image path to an existing image to display it.
+# Get the default structure with "fastfetch --print-structure".
+
+--iterm $(ls ~/.config/fastfetch/logos/**.png | shuf -n 1)
+
+# --logo-padding-right -1
+
+--separator " "
+
+--set-keyless Start=╭──── コンピューター
+--set-keyless Colors=│  \e[31m󰝤󰬙 \e[32m󰝤󰬎 \e[33m󰝤󰬠 \e[34m󰝤󰬉 \e[35m󰝤󰬔 \e[36m󰝤󰬊 \e[37m󰝤󰬞
+--set-keyless End=╰────────────────
+--structure Start:Title:Host:CPU:OS:LocalIP:WiFi:Shell:Terminal:Colors:End
+
+--title-key "╭──── 󱉺󰬍󰬌󰬛󰬊󰬏󰬌󰬋 ──"
+--host-key "│  󰣈  󰫵󰫼󰬀󰬁 "
+--cpu-key "│  󰍛  󰫰󰫽󰬂 "
+--os-key "│    󰫼󰬀 "
+--localip-key "│  󰲝  󰫶󰫽 "
+--wifi-key "│  󰖩  󰬄󱂈󰫳󱂈 "
+--shell-key "│  󰖯  󰬀󰫵󰫲󰫹󰫹 "
+--terminal-key "│  󰅬  󰬁󰫲󰫿󰫺󰫶󰫻󰫮󰫹 "
+
+--host-format "{2}"
+--cpu-format "{1}"
+--os-format "{2} {10}"
+--localip-format "{1}"
+--wifi-format "{4}"
+--terminal-format "{5}"
