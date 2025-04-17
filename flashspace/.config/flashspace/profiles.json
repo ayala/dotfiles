@@ -1,0 +1,48 @@
+{
+  "profiles" : [
+    {
+      "id" : "5D68F25D-DE0D-477A-BC16-D8C70E758E07",
+      "name" : "Default",
+      "workspaces" : [
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "app.zen-browser.zen",
+              "iconPath" : "/Applications/Zen Browser.app/Contents/Resources/firefox.icns",
+              "name" : "Zen"
+            },
+            {
+              "bundleIdentifier" : "com.apple.Safari",
+              "iconPath" : "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/Resources/AppIcon.icns",
+              "name" : "Safari"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "365F4F58-9FCF-4511-90C9-0D664D7F3177",
+          "name" : "Browse",
+          "shortcut" : "cmd+opt+2",
+          "symbolIconName" : "network"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.adobe.Photoshop",
+              "iconPath" : "/Applications/Adobe Photoshop (Beta)/Adobe Photoshop (Beta).app/Contents/Resources/PS_AppIcon_beta.icns",
+              "name" : "Adobe Photoshop (Beta)"
+            },
+            {
+              "bundleIdentifier" : "com.adobe.illustrator",
+              "iconPath" : "/Applications/Adobe Illustrator 2025/Adobe Illustrator.app/Contents/Resources/ai_cc_appicon.icns",
+              "name" : "Adobe Illustrator 2025"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "3F3A667E-968B-4217-A78B-555D2D6CF924",
+          "name" : "Design",
+          "shortcut" : "cmd+opt+1"
+        }
+      ]
+    }
+  ],
+  "selectedProfileId" : "5D68F25D-DE0D-477A-BC16-D8C70E758E07"
+}
