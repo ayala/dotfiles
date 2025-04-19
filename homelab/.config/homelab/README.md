@@ -1,6 +1,8 @@
 # Storage and Backup
 In this repo I will layout my storage and backup solutions for all of the services and platforms running on my homelab. Currently, I manage everything with Proxmox and Proxmox Backup Server. While soultions like Unraid and TrueNAS are awesome, I have found over the years the Proxmox is actually an amazing solution for managing storage, network shares, and backups.
 
+Pulled from this guide → https://www.youtube.com/watch?v=qmSizZUbCOA&t=1748s
+
 ## Navigation
 * [Apps](https://github.com/TechHutTV/homelab/tree/main/apps) - List of all the apps and services.
 * [Home Assistant](https://github.com/TechHutTV/homelab/tree/main/homeassistant) - Smart home services and automation.
