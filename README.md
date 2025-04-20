@@ -19,45 +19,31 @@ git clone https://github.com/ayala/dotfiles.git ~/.dotfiles
 Ensure you have the following installed on your system
 
 ### git
-```
+```zsh
 brew install git
 ```
 
 3. Install GNU stow for symlinked configs
 
 ### stow
-```
+```zsh
 brew install stow
 ```
 
 ## Installation
 
 First, check out the dotfiles repo in your $HOME directory using git
-```
+```zsh
 $ git clone git@github.com/ayala/dotfiles.git
 $ cd .dotfiles
-```
+```zsh
 then use GNU stow to create symlinks
-```
+```zsh
 $ stow .
 ```
 
-4. Install Homebrew, followed by the software listed in the Brewfile.
-
-```zsh
-# These could also be in an install script.
-
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Then pass in the Brewfile location...
-brew bundle --file ~/.dotfiles/Brewfile
-
-# ...or move to the directory first.
-cd ~/.dotfiles && brew bundle
-```
-
 info → https://www.youtube.com/watch?v=y6XCebnB9gs&t=54s
+
 
 ## TODO List
 
