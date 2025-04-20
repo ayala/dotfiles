@@ -36,7 +36,7 @@ First, check out the dotfiles repo in your $HOME directory using git
 ```zsh
 $ git clone git@github.com/ayala/dotfiles.git
 $ cd .dotfiles
-```zsh
+```
 then use GNU stow to create symlinks
 ```zsh
 $ stow .
