@@ -76,8 +76,8 @@ alias ..='cd ..'
 # Fastfetch shortner
 alias ff='fastfetch --load-config ~/.config/fastfetch/m1'
 
-# 
-alias gitup='git add . && git commit -m "update" && git push'
+# git add + commit + push combined 
+alias gitup='git add . && git commit -m "stowed" && git push'
 
 # Quickly edit + source .zshrc
 alias nz="nano ~/.zshrc"

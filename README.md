@@ -2,13 +2,17 @@
 
 This directory contains the dotfiles for my system
 
-```
+1. Clone this repo into you local dotfiles.
+
+```zsh
 # Use SSH (if set up)...
 git clone git@github.com:ayala/dotfiles.git ~/.dotfiles
 
 # ...or use HTTPS and switch remotes later.
 git clone https://github.com/ayala/dotfiles.git ~/.dotfiles
 ```
+
+2. Setup git.
 
 ## Requirements
 
