@@ -14,6 +14,17 @@ git clone https://github.com/ayala/dotfiles.git ~/.dotfiles
 
 2. Setup git.
 
+Let's initialize a Git repo for file versioning and push to Github
+
+```zsh
+cd ~/.dotfiles
+git init
+git add .
+git commit -m "stowed"
+git remote add origin git@github.com:ayala/.dotfiles.git
+git push -u origin main
+```
+
 ## Requirements
 
 Ensure you have the following installed on your system

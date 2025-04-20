@@ -1,2 +1,9 @@
-.git
-.DS_Store
+# mac specific.
+brew
+README\.org
+\.git
+\.Spotlight-V100
+\.fseventsd
+\.DS_Store
+\.brew.txt
+
