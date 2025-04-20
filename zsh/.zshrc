@@ -74,7 +74,10 @@ alias l.='eza -a | egrep "^\."'
 alias ..='cd ..'
 
 # Fastfetch shortner
-alias ff="fastfetch --load-config ~/.config/fastfetch/m1"
+alias ff='fastfetch --load-config ~/.config/fastfetch/m1'
+
+# 
+alias gitup='git add . && git commit -m "update" && git push'
 
 # Quickly edit + source .zshrc
 alias nz="nano ~/.zshrc"
