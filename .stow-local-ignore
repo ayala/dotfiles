@@ -3,9 +3,9 @@
 .Spotlight-V100
 
 # Git
-.gitconfig
-.git
-.gitignore
+\.gitconfig
+\.git
+\.gitignore
 
 # Assets
 README.md

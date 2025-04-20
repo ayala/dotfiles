@@ -65,7 +65,7 @@ alias dots="cd ~/.dotfiles"
 alias c="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
 alias top="htop"
 alias cat="bat"
-alias yay="imgcat /Users/emilio/.config/yay.gif"
+alias yay="imgcat /Users/ea/.config/yay.gif"
 alias ls='EZA_ICON_SPACING=2 eza --icons --color=always --group-directories-first'
 alias ll='EZA_ICON_SPACING=2 eza -alF --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
@@ -74,10 +74,13 @@ alias l.='eza -a | egrep "^\."'
 alias ..='cd ..'
 
 # Fastfetch shortner
-alias ff='fastfetch --load-config ~/.config/fastfetch/m1'
+alias ff='fastfetch --load-config ~/.config/fastfetch/m1.jsonc'
 
 # git add + commit + push combined 
 alias push='git add . && git commit -m "stowed" && git push'
+
+# Remove *.DS_Store files from .dotfiles
+alias dsd="find ~/.dotfiles -name .DS_Store -delete"
 
 # Quickly edit + source .zshrc
 alias nz="nano ~/.zshrc"

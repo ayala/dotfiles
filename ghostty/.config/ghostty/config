@@ -1,20 +1,21 @@
 theme = dark:tokyonight,light:tokyonight-day
-background = #1b233f
+background = 0e0f13
 background-opacity = 0.7
-background-blur-radius = 160
+background-blur-radius = 60
 
-font-family = "Geist Mono"
-font-size = 15
+font-family = "SpaceMono Nerd Font"
+font-size = 17
 cursor-style = block
 
 window-padding-x = 80
 window-padding-y = 80
-window-decoration = false
+window-decoration = none
 macos-titlebar-style = "hidden"
 
 auto-update = check
 
 keybind = global:cmd+grave_accent=toggle_quick_terminal
+keybind = cmd+t=new_split:right
 
 # Spacing around the equals sign does not matter.
 # All of these are identical:
@@ -22,3 +23,5 @@ keybind = global:cmd+grave_accent=toggle_quick_terminal
 # key= value
 # key =value
 # key = value
+
+# original font → Geist Mono
