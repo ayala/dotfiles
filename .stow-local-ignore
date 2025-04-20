@@ -1,9 +1,13 @@
-# mac specific.
-brew
-README\.org
-\.git
-\.Spotlight-V100
-\.fseventsd
-\.DS_Store
-\.brew.txt
+# Mac
+.DS_Store
+.Spotlight-V100
+
+# Git
+.gitconfig
+.git
+.gitignore
+
+# Assets
+README.md
+
 
