@@ -116,9 +116,15 @@
             "format": "{ssid}",
             "keyColor": "blue"
         },
+        // {
+        //     "type": "custom",
+        //     "key": "──────────────",
+        //     "keyColor": "blue"
+        // },
         {
             "type": "custom",
             "key": "──────────────",
+            "format": "{#31}󰝤󰬙 {#32}󰝤󰬎 {#33}󰝤󰬠 {#34}󰝤󰬉 {#35}󰝤󰬔 {#36}󰝤󰬊 {#37}󰝤󰬞",
             "keyColor": "blue"
         }
     ]
