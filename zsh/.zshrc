@@ -28,22 +28,22 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Add in zsh plugins
+# # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+# zinit light Aloxaf/fzf-tab
 
 # Add in snippets
-zinit snippet OMZL::git.zsh
+# zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
-# zinit cdreplay -q
-
 # Load completions
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -61,7 +61,6 @@ alias docs="cd ~/Documents"
 alias cfs="cd ~/.config"
 alias dots="cd ~/.dotfiles"
 
-# Alias ll="ls -lah"
 # alias c="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
 alias top="htop"
 alias cat="bat"
@@ -80,14 +79,14 @@ alias ff='fastfetch --load-config ~/.config/fastfetch/mac.jsonc'
 alias push='git add . && git commit -m "stowed" && git push'
 
 # Remove *.DS_Store files from .dotfiles
-alias dsd="find ~/.dotfiles -name .DS_Store -delete"
+alias dsd="find ~/.dotfiles ~/.config -name .DS_Store -delete"
 
 # Quickly edit + source .zshrc
 alias nz="nano ~/.zshrc"
 alias sz="source ~/.zshrc; echo '.zshrc 📦 ➜ sourced'"
 
 # Quickly edit — confif.jsonc
-alias nf="nano ~/.config/fastfetch/config.jsonc"
+alias nff="nano ~/.config/fastfetch/mac.jsonc"
 
 # Keybindings
 bindkey -e
@@ -110,19 +109,18 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# # Completion styling
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' menu no
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Aliases
-# alias ls='ls --color'
-alias vim='nvim'
+# # Aliases
+# alias vim='nvim'
 
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+# # Shell integrations
+# eval "$(fzf --zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
 
-test -e /Users/ea/.iterm2_shell_integration.zsh && source /Users/ea/.iterm2_shell_integration.zsh || true
+# test -e /Users/ea/.iterm2_shell_integration.zsh && source /Users/ea/.iterm2_shell_integration.zsh || true
