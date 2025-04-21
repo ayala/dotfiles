@@ -74,7 +74,7 @@ alias l.='eza -a | egrep "^\."'
 alias ..='cd ..'
 
 # Fastfetch shortner
-alias ff='fastfetch --load-config ~/.config/fastfetch/m1.jsonc'
+alias ff='fastfetch --load-config ~/.config/fastfetch/mac.jsonc'
 
 # git add + commit + push combined 
 alias push='git add . && git commit -m "stowed" && git push'
