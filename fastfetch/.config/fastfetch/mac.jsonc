@@ -1,0 +1,125 @@
+
+//   "set_keyless": {
+//     "Start": "コンピューター",
+//     "Colors": "\\e[31m󰝤󰬙 \\e[32m󰝤󰬎 \\e[33m󰝤󰬠 \\e[34m󰝤󰬉 \\e[35m󰝤󰬔 \\e[36m󰝤󰬊 \\e[37m󰝤󰬞",
+
+
+// Load with --load-config examples/2.jsonc
+// Note that you must replace the image path to an existing image to display it.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "display": {
+        "separator": " "
+    },
+    "logo": {
+        "type": "iterm",
+        "source": "~/.config/fastfetch/images/**.png",
+        "height": 14,
+        "width": 28,
+        "padding": {
+            "top": 1,
+            "left": 1
+        }
+    },
+
+    // "set_keyless": {
+    // "Start": "コンピューター",
+    // "Colors": "\\e[31m󰝤󰬙 \\e[32m󰝤󰬎 \\e[33m󰝤󰬠 \\e[34m󰝤󰬉 \\e[35m󰝤󰬔 \\e[36m󰝤󰬊 \\e[37m󰝤󰬞",
+    // "End": "──────────────"
+    // },
+     "modules": [
+        {
+            "type": "title",
+            "key": "コンピューター 󱉺󰬍󰬌󰬛󰬊󰬏󰬌󰬋 ─────",
+            "keyColor": "green"
+        },
+        {
+            "type": "host",
+            "key": "󰣈 \u00A0󰫵󰫼󰬀󰬁 ",
+            "format": "{2}",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpu",
+            "key": "󰍛 \u00A0󰫰󰫽󰬂 ",
+            "format": "{1}",
+            "keyColor": "green"
+        },
+        {
+            "type": "os",
+            "key": " \u00A0󰫼󰬀 ",
+            "format": "{2} {10}",
+            "keyColor": "green"
+        },
+        {
+            "type": "disk",
+            "key": "󰮯  󰫱󰫶󰬀󰫸   ",
+            "format": "[{3}] {1} / {2}",
+            "keyColor": "green"
+        },
+        {
+            "type": "memory",
+            "key": "󰃞  󰫺󰫲󰫺󰫼󰫿󰬆 ",
+            "format": "[{3}] {1} / {2}",
+            "keyColor": "green"
+        },
+        {
+            "type": "battery",
+            "key": "  󰫯󰫮󰬁󰬁󰫲󰫿󰬆   ",
+            "keyColor": "green"
+        },
+        "break",
+
+        {
+            "type": "shell",
+            "key": "󰖯 \u00A0󰬀󰫵󰫲󰫹󰫹 ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "terminal",
+            "key": "󰅬 \u00A0󰬁󰫲󰫿󰫺󰫶󰫻󰫮󰫹 ",
+            // "format": "{5}",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "terminalfont",
+            "key": "󰍘  󰫳󰫼󰫻󰬁       ",
+            "keyColor": "yellow"
+        },
+        // {
+        //     "type": "theme",
+        //     "key": "├─󰉼",
+        //     "keyColor": "yellow"
+        // },
+        "break",
+
+        {
+            "type": "uptime",
+            "key": "󰅐  󰬂󰫽󰬁󰫶󰫺󰫲     ",
+            "keyColor": "blue"
+        },
+        {
+            "type": "media",
+            "key": "├─󰝚",
+            "keyColor": "blue"
+        },
+        {
+            "type": "localip",
+            "key": "󰲝 \u00A0󰫶󰫽         ",
+            "compact": true,
+            "keyColor": "blue"
+        },
+        {
+            "type": "wifi",
+            "key": "󰖩  󰬄󱂈󰫳󱂈       ",
+            "format": "{ssid}",
+            "keyColor": "blue"
+        },
+        {
+            "type": "custom",
+            "key": "──────────────",
+            "keyColor": "blue"
+        }
+    ]
+}
