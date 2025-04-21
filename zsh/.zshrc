@@ -40,7 +40,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
-zinit cdreplay -q
+# zinit cdreplay -q
 
 # Load completions
 # autoload -Uz compinit && compinit
@@ -62,7 +62,7 @@ alias cfs="cd ~/.config"
 alias dots="cd ~/.dotfiles"
 
 # Alias ll="ls -lah"
-alias c="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
+# alias c="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
 alias top="htop"
 alias cat="bat"
 alias yay="imgcat /Users/ea/.config/yay.gif"
@@ -118,9 +118,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
+# alias ls='ls --color'
 alias vim='nvim'
-alias c='clear'
 
 # Shell integrations
 eval "$(fzf --zsh)"
