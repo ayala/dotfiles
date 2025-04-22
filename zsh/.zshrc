@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------------------
+#
+#                               ea → zsh for mac 
+#
+# ------------------------------------------------------------------------------
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -61,7 +67,7 @@ alias docs="cd ~/Documents"
 alias cfs="cd ~/.config"
 alias dots="cd ~/.dotfiles"
 
-# alias c="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
+alias clear="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
 alias top="htop"
 alias cat="bat"
 alias yay="imgcat /Users/ea/.config/yay.gif"
@@ -72,21 +78,13 @@ alias l='EZA_ICON_SPACING=2 eza -F --icons --color=always --group-directories-fi
 alias l.='eza -a | egrep "^\."'
 alias ..='cd ..'
 
-# Fastfetch shortner
-alias ff='fastfetch --load-config ~/.config/fastfetch/mac.jsonc'
+alias ff='fastfetch --load-config ~/.config/fastfetch/mac.jsonc' # Fastfetch shortner
+alias nff="nano ~/.config/fastfetch/mac.jsonc" # Quick edit — mac.jsonc
+alias push='git add . && git commit -m "stowed" && git push' # git add + commit + push combined with "stowed" comment
+alias clean="find ~/.dotfiles ~/.config -name .DS_Store -delete" # Remove *.DS_Store files from .dotfiles
 
-# git add + commit + push combined 
-alias push='git add . && git commit -m "stowed" && git push'
-
-# Remove *.DS_Store files from .dotfiles
-alias dsd="find ~/.dotfiles ~/.config -name .DS_Store -delete"
-
-# Quickly edit + source .zshrc
-alias nz="nano ~/.zshrc"
-alias sz="source ~/.zshrc; echo '.zshrc 📦 ➜ sourced'"
-
-# Quickly edit — confif.jsonc
-alias nff="nano ~/.config/fastfetch/mac.jsonc"
+alias nz="nano ~/.zshrc" # Quick edit .zshrc
+alias sz="source ~/.zshrc; echo '.zshrc 📦 ➜ sourced'" # Quick source .zshrc
 
 # Keybindings
 bindkey -e
