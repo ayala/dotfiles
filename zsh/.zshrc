@@ -1,44 +1,34 @@
+# Enable Powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # ------------------------------------------------------------------------------
 #
 #                               ea → zsh for mac 
 #
 # ------------------------------------------------------------------------------
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# zoxide integration
-eval "$(zoxide init --cmd cd zsh)"
-
-# Set the directory we want to store zinit and plugins
+# zinit integration
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-# Source/Load zinit
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# Load powerlevel10k theme
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
 
 # # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-# zinit light Aloxaf/fzf-tab
+# zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Add in snippets
 # zinit snippet OMZL::git.zsh
@@ -60,14 +50,14 @@ zinit cdreplay -q
 #
 # ------------------------------------------------------------------------------
 
-# Location aliases
+# Aliases
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias docs="cd ~/Documents"
 alias cfs="cd ~/.config"
 alias dots="cd ~/.dotfiles"
 
-alias clear="clear && printf '\n%.0s' {1..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
+alias clear="clear && printf '\n%.0s' {2..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
 alias top="htop"
 alias cat="bat"
 alias yay="imgcat /Users/ea/.config/yay.gif"
@@ -81,7 +71,7 @@ alias ..='cd ..'
 alias ff='fastfetch --load-config ~/.config/fastfetch/mac.jsonc' # Fastfetch shortner
 alias nff="nano ~/.config/fastfetch/mac.jsonc" # Quick edit — mac.jsonc
 alias push='git add . && git commit -m "stowed" && git push' # git add + commit + push combined with "stowed" comment
-alias clean="find ~/.dotfiles ~/.config -name .DS_Store -delete" # Remove *.DS_Store files from .dotfiles
+alias clean="find ~/.dotfiles ~/.config -name .DS_Store -delete" # Remove *.DS_Store files from .dotfiles and .config
 
 alias nz="nano ~/.zshrc" # Quick edit .zshrc
 alias sz="source ~/.zshrc; echo '.zshrc 📦 ➜ sourced'" # Quick source .zshrc
@@ -107,18 +97,19 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# # Completion styling
-# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# zstyle ':completion:*' menu no
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Completions not case sensitive
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored folder
+zstyle ':completion:*' menu no # no menu on fzf
 
-# # Aliases
-# alias vim='nvim'
+# Folder preview fzf
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# # Shell integrations
-# eval "$(fzf --zsh)"
-# eval "$(zoxide init --cmd cd zsh)"
+# fzf integrations
+eval "$(fzf --zsh)" # Fuzzy search in a directory
+
+# zoxide integration
+eval "$(zoxide init --cmd cd zsh)" # cd command on steroids → https://www.youtube.com/watch?v=aghxkpyRVDY
 
 # test -e /Users/ea/.iterm2_shell_integration.zsh && source /Users/ea/.iterm2_shell_integration.zsh || true
