@@ -1,13 +1,24 @@
-# Enable Powerlevel10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# ------------------------------------------------------------------------------
+#
+#                               ea → zsh for mac
+#
+# ------------------------------------------------------------------------------
+
+# install starship
+if ! command -v starship &> /dev/null; then
+  echo "Installing Starship..."
+  brew install starship
+  if [ $? -eq 0 ]; then
+    echo "Starship installed successfully!"
+  else
+    echo "Failed to install Starship."
+  fi
 fi
 
-# ------------------------------------------------------------------------------
-#
-#                               ea → zsh for mac 
-#
-# ------------------------------------------------------------------------------
+# shell integrations
+eval "$(starship init zsh)" # initialize starship
+eval "$(fzf --zsh)" # fzf integration → Fuzzy search in a directory
+eval "$(zoxide init --cmd cd zsh)" # cd command on steroids → https://www.youtube.com/watch?v=aghxkpyRVDY
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
@@ -20,44 +31,38 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Load powerlevel10k theme
-zinit ice depth"1" # git clone depth
-zinit light romkatv/powerlevel10k
-
-# # Add in zsh plugins
+# add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 # zinit light zdharma-continuum/fast-syntax-highlighting
 
-# Add in snippets
-# zinit snippet OMZL::git.zsh
+# add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
-# Load completions
-autoload -Uz compinit && compinit
+# load completions
+autoload -Uz compinit
+compinit
 
 zinit cdreplay -q
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # ------------------------------------------------------------------------------
 #
-#                               Custom Aliases 
+#                               Custom Aliases
 #
 # ------------------------------------------------------------------------------
 
-# Aliases
+# aliases
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias docs="cd ~/Documents"
 alias cfs="cd ~/.config"
 alias dots="cd ~/.dotfiles"
 
-alias clear="clear && printf '\n%.0s' {2..$LINES}" ## Keep prompt to the bottom on Ctrl+L.
+alias clear="clear && printf '\n%.0s' {1..$LINES}" # Keep prompt to the bottom on Ctrl+L.
 alias top="htop"
 alias cat="bat"
 alias yay="imgcat /Users/ea/.config/yay.gif"
@@ -76,15 +81,15 @@ alias clean="find ~/.dotfiles ~/.config -name .DS_Store -delete" # Remove *.DS_S
 alias nz="nano ~/.zshrc" # Quick edit .zshrc
 alias sz="source ~/.zshrc; echo '.zshrc 📦 ➜ sourced'" # Quick source .zshrc
 
-# Keybindings
+# keybindings
 bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-bindkey '^[w' kill-region
-bindkey "^[^[[C" forward-word
-bindkey "^[^[[D" backward-word
+# bindkey '^p' history-search-backward
+# bindkey '^n' history-search-forward
+# bindkey '^[w' kill-region
+# bindkey "^[^[[C" forward-word
+# bindkey "^[^[[D" backward-word
 
-# History
+# history
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -97,19 +102,11 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
+# completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Completions not case sensitive
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored folder
 zstyle ':completion:*' menu no # no menu on fzf
-
-# Folder preview fzf
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# fzf integrations
-eval "$(fzf --zsh)" # Fuzzy search in a directory
-
-# zoxide integration
-eval "$(zoxide init --cmd cd zsh)" # cd command on steroids → https://www.youtube.com/watch?v=aghxkpyRVDY
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # folder preview fzf
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # test -e /Users/ea/.iterm2_shell_integration.zsh && source /Users/ea/.iterm2_shell_integration.zsh || true

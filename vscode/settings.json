@@ -1,0 +1,113 @@
+{
+  // ========== Visuals ==========
+  "editor.fontFamily": "SpaceMono Nerd Font",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 1.8,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+  "editor.minimap.enabled": false,
+  "editor.guides.indentation": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  // "editor.showFoldingControls": "never",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "block",
+  "editor.cursorSurroundingLines": 1,
+  "editor.overviewRulerBorder": false,
+  "editor.accessibilitySupport": "on",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": 1.3,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
+  "custom-ui-style.electron": {
+      "titleBarStyle": "hiddenInset",
+      "trafficLightPosition": {
+        "x": 20,
+        "y": 16
+      }
+  },
+  "custom-ui-style.stylesheet": {
+    ".notification-toast": "box-shadow: none !important",
+    ".quick-input-widget.show-file-icons": "box-shadow: none !important",
+    ".quick-input-widget": "top: 25vh !important",
+    ".quick-input-list .scrollbar": "display: none",
+    ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
+    ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
+    ".quick-input-titlebar": "background: #100B15 !important",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
+    ".monaco-scrollable-element > .shadow.top": "display: none",
+    ".sidebar .title-label": "padding: 0 !important",
+    ".sidebar": "border: none !important",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
+    ".monaco-list-row.focused": "outline: none !important",
+    ".monaco-editor .scroll-decoration": "display: none",
+    ".title-actions": "display: none !important",
+    // ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
+    ".title .monaco-icon-label:after": "margin-right: 0",
+    ".title .monaco-icon-label.file-icon": "margin: 0 60px",
+    ".sidebar .title-label h2": "line-height: 2.8 !important",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 60px"
+  },
+  "custom-ui-style.font.sansSerif": "Space Mono",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.colorTheme": "Aura Dracula Spirit",
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.indent": 12,
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showTabs": "multiple",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "workbench.colorCustomizations":{
+    "editorCursor.background": "#000000",
+    "editorSuggestWidget.selectedBackground": "#231739",
+    "list.activeSelectionBackground": "#231739",
+    "list.inactiveSlectionBackground": "#231739",
+    "list.focusBackground": "#231739",
+    "list.hoverBackground": "#392d50",
+    "[Aura Dracula Spirit]": {
+        "sideBar.background": "#0f0b15"
+    }
+  },
+  "breadcrumbs.enabled": false,
+
+ // ========== Editor ==========
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.untrackedChanges": "separate",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "terminal.integrated.fontFamily": "Space Mono",
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.lineHeight": 1.4,
+  "terminal.integrated.fontSize": 14,
+  "vscode_custom_css.imports": [
+    "file:///Users/ea/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "animations.Tabs": "Slide",
+  "animations.CursorAnimation": true,
+  "animations.Default-Duration": 156,
+  "animations.CursorAnimationOptions": {
+    "TrailLength": 8,
+    "Color": "#d7c4ff"
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "workbench.iconTheme": "symbols",
+  "editor.formatOnSave": true,
+}

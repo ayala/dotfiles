@@ -16,7 +16,7 @@
         "type": "iterm",
         "source": "~/.config/fastfetch/images/**.png",
         "height": 14,
-        "width": 28,
+        "width": 30,
         "padding": {
             "top": 1,
             "left": 1
