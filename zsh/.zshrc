@@ -36,7 +36,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-# zinit light zdharma-continuum/fast-syntax-highlighting
 
 # add in snippets
 zinit snippet OMZP::git

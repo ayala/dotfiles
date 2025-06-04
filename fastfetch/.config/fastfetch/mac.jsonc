@@ -36,55 +36,55 @@
         },
         {
             "type": "host",
-            "key": "󰣈 \u00A0󰫵󰫼󰬀󰬁 ",
+            "key": "󰣈  󰫵󰫼󰬀󰬁 󰧟󰧟󰧟󰧟󰧟󰧟",
             "format": "{2}",
             "keyColor": "green"
         },
         {
             "type": "cpu",
-            "key": "󰍛 \u00A0󰫰󰫽󰬂 ",
+            "key": "󰍛  󰫰󰫽󰬂 󰧟󰧟󰧟󰧟󰧟󰧟󰧟",
             "format": "{1}",
             "keyColor": "green"
         },
         {
             "type": "os",
-            "key": " \u00A0󰫼󰬀 ",
+            "key": "  󰫼󰬀 󰧟󰧟󰧟󰧟󰧟󰧟󰧟󰧟",
             "format": "{2} {10}",
             "keyColor": "green"
         },
         {
             "type": "disk",
-            "key": "󰮯  󰫱󰫶󰬀󰫸   ",
+            "key": "󰮯  󰫱󰫶󰬀󰫸 󰧟󰧟󰧟󰧟󰧟󰧟",
             "format": "[{3}] {1} / {2}",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "󰃞  󰫺󰫲󰫺󰫼󰫿󰬆 ",
+            "key": "󰃞  󰫺󰫲󰫺󰫼󰫿󰬆 󰧟󰧟󰧟󰧟",
             "format": "[{3}] {1} / {2}",
             "keyColor": "green"
         },
-        {
-            "type": "battery",
-            "key": "  󰫯󰫮󰬁󰬁󰫲󰫿󰬆   ",
-            "keyColor": "green"
-        },
+        // {
+        //     "type": "battery",
+        //     "key": "  󰫯󰫮󰬁󰬁󰫲󰫿󰬆 󰧟󰧟󰧟",
+        //     "keyColor": "green"
+        // },
         "break",
 
         {
             "type": "shell",
-            "key": "󰖯 \u00A0󰬀󰫵󰫲󰫹󰫹 ",
+            "key": "󰖯  󰬀󰫵󰫲󰫹󰫹 󰧟󰧟󰧟󰧟󰧟",
             "keyColor": "yellow"
         },
         {
             "type": "terminal",
-            "key": "󰅬 \u00A0󰬁󰫲󰫿󰫺󰫶󰫻󰫮󰫹 ",
+            "key": "󰅬  󰬁󰫲󰫿󰫺󰫶󰫻󰫮󰫹 󰧟󰧟",
             // "format": "{5}",
             "keyColor": "yellow"
         },
         {
             "type": "terminalfont",
-            "key": "󰍘  󰫳󰫼󰫻󰬁       ",
+            "key": "󰍘  󰫳󰫼󰫻󰬁 󰧟󰧟󰧟󰧟󰧟󰧟",
             "keyColor": "yellow"
         },
         // {
@@ -96,7 +96,7 @@
 
         {
             "type": "uptime",
-            "key": "󰅐  󰬂󰫽󰬁󰫶󰫺󰫲     ",
+            "key": "󰅐  󰬂󰫽󰬁󰫶󰫺󰫲 󰧟󰧟󰧟󰧟",
             "keyColor": "blue"
         },
         {
@@ -106,13 +106,13 @@
         },
         {
             "type": "localip",
-            "key": "󰲝 \u00A0󰫶󰫽         ",
+            "key": "󰲝  󰫶󰫽 󰧟󰧟󰧟󰧟󰧟󰧟󰧟󰧟",
             "compact": true,
             "keyColor": "blue"
         },
         {
             "type": "wifi",
-            "key": "󰖩  󰬄󱂈󰫳󱂈       ",
+            "key": "󰖩  󰬄󱂈󰫳󱂈 󰧟󰧟󰧟󰧟󰧟󰧟",
             "format": "{ssid}",
             "keyColor": "blue"
         },
