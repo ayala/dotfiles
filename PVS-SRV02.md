@@ -38,6 +38,25 @@ Once installed, launch ProxMenux by running:
 menu
 ```
 
+### Setting up Storage for the MS-01
+One mirrored ZFS pool from NVME 2 and 3 with 2 4TB Orico drives.
+One single disk 4TB out of a WD Black 850 in slot 1 for performance. (Will solve for redundancy later).
+
+In ZFS tab, press "Create: ZFS". Name it → Do not add Add Storage → Choose raid configuration → Compression: lz4 → ashift: 12 → Hit "Create"
+lets add some datasets from the host shell:
+```sh
+zpool list
+```
+and
+```sh
+zfs list
+```
+can show you what pools are available.
+Create the following: 
+```sh
+zfs create blaze/backups && zfs create blaze/isos && zfs create blaze/vms
+```
+ 
 ## Create Boot Drive and Install
 
 > Use `diskutil` or balenaEtcher.
