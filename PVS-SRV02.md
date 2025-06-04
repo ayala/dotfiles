@@ -1,20 +1,18 @@
-# Proxmox in ZimaBlade
+# Proxmox in MS-01 13900H
 
 ### Setup
 * Nginx Proxy Manager LXC
-* AdGuard Home LXC
+* AdGuard Home LXC ← pi
 * Docker/Samba LXC
   * Immich
   * NextCloud
 * Jellyfin LXC
 
-### Requirements
-* ZimaBlade
-* Two SATA HDD
-* One USB SSD
-* USB HUB with at least 4 USB ports
-* USB Drive for installation
-* Keyboard and mouse
+### Hardware
+* MS-01
+* 4 NVME Drives (3 4TB + 1 512GB) 
+* JetKVM
+* USB Drive for local Backups
 
 ### Steps
 1. Download ISO and Create bootable USB
@@ -28,7 +26,7 @@
 
 ## Create Boot Drive and Install
 
-> You can use `diskutil` or balenaEtcher.
+> Use `diskutil` or balenaEtcher.
 
 ### Installation
 1. Select the destination.
@@ -50,7 +48,7 @@
 8. Set the DNS settings.
 9. Confirm and press `Finish`, do NOT start the container.
 
-> Consider set the container as unprivileged and enabling `Nesting`, `NFS` and `SMB/CIFS` in `Options`.
+> Set the container as unprivileged and enabling `Nesting`, `NFS` and `SMB/CIFS` in `Options`.
 
 ### Creating the media pool and adding it to the main node
 
@@ -84,14 +82,14 @@ apt update && apt upgrade
 apt install sudo curl
 ```
 
-Add the main user, replace `johnsmith` with your own
+Add the main user, replace `ea` with your own
 ```sh
-adduser johnsmith
+adduser ea
 ```
 
 Adding the user to sudoers
 ```sh
-usermod -aG sudo johnsmith
+usermod -aG sudo ea
 ```
 
 Get your ip address
@@ -103,14 +101,14 @@ ip address
 
 With the newly created user, login using the remote terminal
 ```sh
-ssh johnsmith@192.168.1.6
+ssh ea@10.1.1.103
 ```
 
-Install docker, replace `johnsmith` with your own
+Install docker, replace `ea` with your own
 ```sh
 sudo apt update && sudo apt upgrade
 curl -sSL https://get.docker.com | sh
-sudo usermod -aG docker johnsmith
+sudo usermod -aG docker ea
 ```
 
 ### File sharing
@@ -127,7 +125,7 @@ cd /mnt/media && mkdir nas guests
 
 Create your Samba user
 ```sh
-sudo smbpasswd -a johnsmith
+sudo smbpasswd -a ea
 ```
 
 Edit Config
@@ -143,7 +141,7 @@ Set the `/etc/samba/smb.conf` like this:
    server string = Debian Samba Server
    security = user
    map to guest = Bad Password
-   guest account = johnsmith
+   guest account = ea
    
    # macOS compatibility
    server min protocol = SMB2
@@ -167,13 +165,13 @@ Set the `/etc/samba/smb.conf` like this:
    read only = no
    create mask = 0666
    directory mask = 0777
-   force user = johnsmith
+   force user = ea
 
 [MyNAS]
    path = /mnt/media/nas
    writable = yes
    browsable = yes
-   valid users = johnsmith
+   valid users = ea
    guest ok = no
    read only = no
    create mask = 0666
@@ -189,9 +187,9 @@ Shares file structure
 ```
 |-- guests
 `-- nas
-	|-- Movies
-	|-- Pics
-	`-- Shows
+	|-- movies
+	|-- photos
+	`-- shows
 ```
 
 ## Immich in Docker LXC
@@ -203,9 +201,9 @@ wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/
 wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env
 ```
 
-For external libraries, edit the `docker-compose.yml` and add the path for the external library
+For external libraries, edit the `compose.yml` and add the path for the external library
 ```sh
-nano docker-compose.yml
+nano compose.yml
 ```
 
 From this:
@@ -238,7 +236,7 @@ cd immich && docker compose down -v && docker compose pull && docker compose up 
 > Installation instructions from https://immich.app/docs/install/docker-compose
 
 ## Jellyfin Media Server LXC
-> 2GB RAM, 20GB HD, 4 Cores
+> 2GB RAM, 30GB HD, 4 Cores
 
 1. Install the container with script
 2. Set the pool mount point
@@ -260,7 +258,7 @@ pct set 101 --mp1 /mzp/media,mp=/mnt/media
 ## Nginx Proxy Manager LXC
 > 1GB RAM, 8GB HD, 1 Core
 
-In the pve->shell, run this recipe and follow the prompts:
+In the pve ->shell, run this recipe and follow the prompts:
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/nginxproxymanager.sh)"
 ```
@@ -275,7 +273,7 @@ Password: changeme
 ## AdGuard Home LXC
 > 1GB RAM, 8GB HD, 2 Cores
 
-In the pve->shell, run this recipe and follow the prompts:
+In the pve ->shell, run this recipe and follow the prompts:
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/adguard.sh)"
 ```
@@ -286,7 +284,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 Requirements:
 * A public ip.
-* A fully qualified domain name (FQDN) pointing to the public ip.
+* A fully qdualified domain name (FQDN) pointing to the public ip.
 * Your ports `80` and `443` open in your router.
 * Nginx Proxy Manager already running behind the router.
 * Docker installed and running.
@@ -311,7 +309,7 @@ client_max_body_size 0;
 
 ```sh
 cd && mkdir nextcloud && cd nextcloud/
-nano docker-compose.yml
+nano compose.yml
 ```
 
 ```yaml
