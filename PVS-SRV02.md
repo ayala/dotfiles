@@ -14,6 +14,26 @@
 * JetKVM
 * USB Drive for local Backups
 
+### Storage Config 
+
+Approach is as follows:
+
+1. PCIe 4.0 x4:
+WD_BLACK SN850X NVMe SSD 4TB
+Primary storage for CTs, VMs, Home Assistant, Nextcloud, and other high-performance services.
+2. PCIe 3.0 x4:
+ORICO i7500 NVMe SSD 4TB
+3. PCIe 3.0 x2:
+ORICO i7500 NVMe SSD 4TB
+4. Mini PCIe 2230 Key A+E 3.0 x2:  
+Kingston NVMe SSD (512 GB) in WiFi Slot
+Dedicated to Proxmox OS.
+
+Configuration:
+
+Use the two ORICO i7500 SSDs in a ZFS Mirror.
+The Proxmox OS stays isolated on the Kingston 512GB SSD.
+
 ### Steps
 1. Download ISO and Create bootable USB
 2. Install Proxmox
