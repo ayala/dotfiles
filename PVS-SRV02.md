@@ -2,11 +2,11 @@
 
 ### Setup
 * Nginx Proxy Manager LXC
-* AdGuard Home LXC ← pi
 * Docker/Samba LXC
   * Immich
   * NextCloud
 * Jellyfin LXC
+* Plex
 
 ### Hardware
 * MS-01
@@ -23,6 +23,20 @@
 6. Create mirror pool
 7. Attach mirror pool to the Docker/Samba container
 8. Setup the Docker/Samba and other LXC
+
+### Proxmox Tools
+
+1. Proxmenux → https://macrimi.github.io/ProxMenux/
+
+To install ProxMenux, run the following command in your Proxmox server host:
+```sh
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/MacRimi/ProxMenux/main/install_p
+```
+
+Once installed, launch ProxMenux by running:
+```sh
+menu
+```
 
 ## Create Boot Drive and Install
 
