@@ -10,7 +10,7 @@
 
 ### Hardware
 * MS-01
-* 4 NVME Drives (3 4TB + 1 512GB) 
+* 5 NVME Drives (4 4TB + 1 512GB) 
 * JetKVM
 * USB Drive for local Backups
 
@@ -53,7 +53,7 @@ To install ProxMenux, run the following command in your Proxmox server host:
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/MacRimi/ProxMenux/main/install_p
 ```
 
-Once installed, launch ProxMenux by running:
+Once installed, ProxMenux can be launched by running:
 ```sh
 menu
 ```
@@ -79,7 +79,7 @@ zfs create blaze/backups && zfs create blaze/isos && zfs create blaze/vms
  
 ## Create Boot Drive and Install
 
-> Use `diskutil` or balenaEtcher.
+> Use `diskutil` or [BalenaEtcher](https://etcher.balena.io).
 
 ### Installation
 1. Select the destination.
@@ -95,7 +95,7 @@ zfs create blaze/backups && zfs create blaze/isos && zfs create blaze/vms
 2. Enter the host name and password, then press `Next`.
 3. Select the debian template.
 4. Select the storage pool, and set the disk size.
-5. Select the number of cores.
+5. Select the number of cores. 
 6. Set the memory limit.
 7. Set the network settings.
 8. Set the DNS settings.
@@ -115,16 +115,16 @@ zfs create blaze/backups && zfs create blaze/isos && zfs create blaze/vms
 zfs list
 
 # Create a pool
-zfs create mzp/media
+zfs create tank/media
 
 # Limit (Optional)
-zfs set quota=100G mzp/media
+zfs set quota=100G tank/media
 
 # Set the mountpoint for 102 container
-pct set 100 --mp1 /mzp/media,mp=/mnt/media
+pct set 100 --mp1 /tank/media,mp=/mnt/media
 
 # Set permissions
-chmod -R 777 /mzp/media
+chmod -R 777 /tank/media
 ```
 
 ### Creating the main user for Docker/Samba
