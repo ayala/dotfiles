@@ -413,7 +413,7 @@ docker compose up -d
 
 Go to https://docker-ip:8080/, save the passphrase, follow the instructions. After the installation, save the admin initial password.
 
-## Customize your start up shell message 
+### Customize your start-up shell message 
 
 ```sh
 nano /etc/motd
