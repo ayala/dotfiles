@@ -1,5 +1,6 @@
 # Create a Cloud-Init VM template
 
+
 ### Step 1 Create VM
 In Proxmox Click → Create VM and use the following settings:
 * General: VM ID: 800 to set it low on your list
@@ -9,16 +10,18 @@ In Proxmox Click → Create VM and use the following settings:
 * CPU: Cores:2 | Type: host
 * Memory: Balooning Device: Deselect
 * Network: Skip and Create VM
+* Once created, click → More and convert to template
  
-Once created, select it and click → More ← and convert to template
- 
+
 ### Step 2 Clone VM
 * Click → More ← select Clone 
 * VM ID: 900 | Name: Debian 12 | Mode: Full Clone 
 
+
 ### Step 3 Load Clone 
 ```sh
-# Download image on host node for [Debian](https://cloud.debian.org/images/cloud/bookworm/latest/) latest → debian-12-generic-amd64.qcow2 
+# Download image on host node for [Debian](https://cloud.debian.org/images/cloud/bookworm/latest/) latest 
+# → debian-12-generic-amd64.qcow2 
 wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2
 ```
 ```sh
