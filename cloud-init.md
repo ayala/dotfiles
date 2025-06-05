@@ -12,16 +12,13 @@ In Proxmox Click → Create VM and use the following settings:
 * Network: Skip and Create VM
 * Once created, click → More and convert to template
  
-
 ### Step 2 Clone VM
 * Click → More ← select Clone 
 * VM ID: 900 | Name: Debian 12 | Mode: Full Clone 
 
-
 ### Step 3 Load Clone 
 ```sh
-# Download image on host node for [Debian](https://cloud.debian.org/images/cloud/bookworm/latest/) latest 
-# → debian-12-generic-amd64.qcow2 
+# Download Debian on host node → debian-12-generic-amd64.qcow2 
 wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2
 ```
 ```sh
