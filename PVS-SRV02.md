@@ -115,7 +115,7 @@ zfs create tank/media
 # Limit (Optional)
 zfs set quota=100G tank/media
 
-# Set the mountpoint for 102 container
+# Set the mountpoint for 100 container
 pct set 100 --mp1 /tank/media,mp=/mnt/media
 
 # Set permissions
@@ -412,3 +412,9 @@ docker compose up -d
 ```
 
 Go to https://docker-ip:8080/, save the passphrase, follow the instructions. After the installation, save the admin initial password.
+
+## Customize your start up shell message 
+
+```sh
+nano /etc/motd
+```
