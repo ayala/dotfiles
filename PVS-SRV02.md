@@ -46,13 +46,12 @@ The Proxmox OS stays isolated on the Kingston 512GB SSD.
 
 ### Proxmox Tools
 
-1. [Proxmenux](https://macrimi.github.io/ProxMenux/)
+1. [ProxMenux](https://macrimi.github.io/ProxMenux/)
 
-Install ProxMenux:
 ```sh
+# Install ProxMenux
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/MacRimi/ProxMenux/main/install_p
 ```
-run command "menu".
 
 ### Setting up Storage for the MS-01
 One mirrored ZFS pool from NVME 2 and 3 with 2 4TB Orico drives.
