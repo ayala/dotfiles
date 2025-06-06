@@ -1,56 +1,67 @@
-# Proxmox Template with Cloud Init
-> Jun 5 2024
+# Proxmox Ubuntu Cloud Init Template
+> Jun 6 2024
 
 Choose your [Ubuntu](https://cloud-images.ubuntu.com) Cloud Image
 
 ```sh
+cd /var/lib/vz/template/iso/ 
 wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 ```
 
-Create a VM
+Create VM
 ```sh
-qm create 800 --memory 2048 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
+qm create 5000 --memory 4096 --cpu host --balloon 0 --numa 1 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
+```
+```sh
+cd /var/lib/vz/template/iso/
+```
+Import the Ubuntu disk (Change ```nvme``` to preferred storage)
+```sh
+qm importdisk 5000 noble-server-cloudimg-amd64.img nvme
 ```
 
-Import the Ubuntu disk to local storage (Change ```local``` to preferred storage)
+Attach the new disk to VM (Change ```nvme``` to preferred storage)
 ```sh
-qm disk import 800 jammy-server-cloudimg-amd64.img vms
+qm set 5000 --scsihw virtio-scsi-pci --scsi0 nvme:5000/vm-5000-disk-0.raw,ssd=1
 ```
 
-Attach the new disk to the vm as a scsi drive on the scsi controller (Change ```local``` to the storage of your choice)
+Add Cloud Init drive (Change ```nvme``` to prefered storage)
 ```sh
-qm set 800 --scsihw virtio-scsi-pci --scsi0 local:vm-800-disk-0
+qm set 5000 --ide2 nvme:cloudinit
 ```
 
-Add cloud init drive (Change ```local``` to the storage of your choice)
+Make the Cloud Init drive bootable
 ```sh
-qm set 800 --ide2 local:cloudinit
-```
-
-Make the cloud init drive bootable and restrict BIOS to boot from disk only
-```sh
-qm set 800 --boot c --bootdisk scsi0
+qm set 5000 --boot c --bootdisk scsi0
 ```
 
 Add serial console
 ```sh
-qm set 800 --serial0 socket --vga serial0
+qm set 5000 --serial0 socket --vga serial0
 ```
 
 #### DO NOT START YOUR VM
 
 Now, configure hardware and cloud init, then create a template and clone.
+
+IP Config: Enable DHCP
+
 If you want to expand your hard drive you can on this base image before 
-creating a template or after you clone a new machine. I prefer to expand 
-the hard drive after I clone a new machine based on need.
+creating a template or after you clone a new machine with the following:
+```sh
+qm disk resize 5000 scsi0 10G
+```
+
+You'll find existing SSH Keys for Proxmox here:
+```/root/.ssh/id_rsa``` and ```/root/.ssh/id_rsa.pub```
 
 Create Template
 ```sh
-qm template 800
+qm template 5000
 ```
 
 Clone template (Change ```135``` to desired VM ID and name it)
 ```sh
-qm clone 800 135 --name nameme --full
+qm clone 5000 135 --name nameme --full
 ```
 
