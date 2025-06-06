@@ -3,12 +3,12 @@
 
 Choose your [Ubuntu](https://cloud-images.ubuntu.com) Cloud Image
 
-```zsh
+```sh
 wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 ```
 
 Create a VM
-```zsh
+```sh
 qm create 800 --memory 2048 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
 ```
 
