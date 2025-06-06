@@ -22,7 +22,7 @@ qm importdisk 9000 noble-server-cloudimg-amd64.img nvme
 
 Attach the new disk to VM (Change ```nvme``` to preferred storage)
 ```sh
-qm set 9000 --scsihw virtio-scsi-pci --scsi0 nvme:9000/vm-9000-disk-0.raw,ssd=1
+qm set 9000 --scsihw virtio-scsi-pci --scsi0 nvme:9000/vm-9000-disk-0.raw,discard=on,ssd=1
 ```
 
 Add Cloud Init drive (Change ```nvme``` to prefered storage)
