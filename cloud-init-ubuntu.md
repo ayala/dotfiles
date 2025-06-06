@@ -12,7 +12,7 @@ Create a VM
 qm create 800 --memory 2048 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
 ```
 
-Import the Ubuntu disk to local storage (Change ==local== to preffered storage)
+Import the Ubuntu disk to local storage (Change ```local``` to preffered storage)
 ```sh
 qm disk import 800 jammy-server-cloudimg-amd64.img vms
 ```
