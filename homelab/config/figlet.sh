@@ -4,6 +4,9 @@
 # Version : 1.0
 # Last Updated: 28/01/2025
 
+# Clear the screen
+clear
+
 # Function to display a spinner
 spinner() {
     local pid=$1
@@ -72,7 +75,7 @@ echo ""
 # Final MOTD display
 printf "Displaying final confirmation of custom font and color... "
 (echo "") & spinner $!
-(figlet -f "sliver.flf" "figlet installed" | lolcat && echo "") 
+(figlet -f "sliver.flf" "figlet installed" | lolcat && echo "")
 echo "Done."
 echo ""
 
