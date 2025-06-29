@@ -10,7 +10,7 @@ HOST_DB="https://raw.githubusercontent.com/ayala/dotfiles/main/homelab/config/mo
 LOCAL_HOST_DB_PATH="/tmp/host-db-downloaded" # temporary local path for the downloaded file
 CUSTOM_MOTD="/etc/update-motd.d/99-custom"
 STATIC_MOTD="/etc/motd" # path to the static MOTD file
-LXC_DETAILS_SCRIPT="/etc/profile.d/00_lxc_details.sh" # path to the LXC details script
+# LXC_DETAILS_SCRIPT="/etc/profile.d/00_lxc-details.sh" # No longer needed, as we'll clear all files
 
 # --- functions ---
 
@@ -72,14 +72,20 @@ clear_static_motd() {
     fi
 }
 
-# disable the LXC details script in /etc/profile.d
-disable_lxc_details_script() {
-    echo "Disabling LXC details script: $LXC_DETAILS_SCRIPT..."
-    if [[ -f "$LXC_DETAILS_SCRIPT" ]]; then
-        chmod -x "$LXC_DETAILS_SCRIPT" 2>/dev/null
-        echo "LXC details script disabled."
+# clear all files in /etc/profile.d by removing execute permissions
+clear_profile_d_scripts() {
+    echo "Clearing all scripts in /etc/profile.d by removing execute permissions..."
+    local profile_d_dir="/etc/profile.d"
+    if [[ -d "$profile_d_dir" ]]; then
+        for script in "$profile_d_dir"/*; do
+            if [[ -f "$script" ]]; then
+                chmod -x "$script" 2>/dev/null
+                echo "Disabled: $script"
+            fi
+        done
+        echo "All scripts in /etc/profile.d cleared."
     else
-        echo "Warning: LXC details script $LXC_DETAILS_SCRIPT not found."
+        echo "Warning: Directory $profile_d_dir not found."
     fi
 }
 
@@ -157,7 +163,7 @@ download_host_db
 disable_dynamic_motd
 configure_sshd_motd
 clear_static_motd
-disable_lxc_details_script
+clear_profile_d_scripts # Changed function call here
 create_custom_motd
 
 echo "MOTD customization complete. Please log out and back in to see the changes."
