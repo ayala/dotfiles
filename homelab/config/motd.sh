@@ -6,7 +6,7 @@
 curl -s https://raw.githubusercontent.com/ayala/dotfiles/main/homelab/config/figlet.sh | bash
 
 # --- configuration ---
-HOST_DB="https://raw.githubusercontent.com/ayala/dotfiles/main/homelab/config/motd.sh"
+HOST_DB="https://raw.githubusercontent.com/ayala/dotfiles/main/homelab/config/host-db"
 LOCAL_HOST_DB_PATH="/tmp/host-db" # temporary local path for the downloaded file
 CUSTOM_MOTD="/etc/update-motd.d/99-custom"
 STATIC_MOTD="/etc/motd" # path to the static MOTD file
