@@ -18,7 +18,7 @@ STATIC_MOTD="/etc/motd" # path to the static MOTD file
 download_host_db() {
     echo "Attempting to download host-db from $HOST_DB..."
     # use curl to download the file silently (-s) and fail fast on errors (-f)
-    if ! curl -sfL "$HOST_DB" -o "$LOCAL_HOST_DB_PATH"; then
+    if ! curl -L "$HOST_DB" -o "$LOCAL_HOST_DB_PATH"; then
         echo "Error: Failed to download host-db from GitHub. Please check the URL and your network connection."
         # exit the script if the host-db cannot be downloaded, as it's critical
         exit 1
