@@ -7,7 +7,7 @@ curl -s https://raw.githubusercontent.com/ayala/dotfiles/main/homelab/config/fig
 
 # --- configuration ---
 HOST_DB="https://raw.githubusercontent.com/ayala/dotfiles/main/homelab/config/motd.sh"
-LOCAL_HOST_DB_PATH="/tmp/host-db-downloaded" # temporary local path for the downloaded file
+LOCAL_HOST_DB_PATH="/tmp/host-db" # temporary local path for the downloaded file
 CUSTOM_MOTD="/etc/update-motd.d/99-custom"
 STATIC_MOTD="/etc/motd" # path to the static MOTD file
 # LXC_DETAILS_SCRIPT="/etc/profile.d/00_lxc-details.sh" # No longer needed, as we'll clear all files
