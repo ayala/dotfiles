@@ -129,7 +129,7 @@ create_custom_motd() {
     if [[ -z "$custom_banner" ]]; then
         echo "No custom banner found for $hostname in $LOCAL_HOST_DB_PATH. Using figlet."
         # use printf to handle potential newlines from figlet better
-        custom_banner=$(figlet -f sliver.flf "${hostname}")
+        custom_banner=$(figlet -f sliver.flf "${hostname}" && echo "")
     fi
 
     # create the 99-custom script
