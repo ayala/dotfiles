@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Set TERM if it's not already set (e.g., when run from cron or systemd)
+# Choose an appropriate value for your environment, 'xterm' is often a safe default
+if [ -z "$TERM" ]; then
+    TERM=xterm
+    export TERM
+fi
+
 # run manually after creating a new CT/VM
 
 # install figlet if not already installed
