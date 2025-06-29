@@ -3,47 +3,33 @@
  |___ |__|  |  |--| |-__ | \|
 ______________________________
 #END_HOST:luthen
-
-
 #START_HOST:nextcloud
  __ _ ____ _ _ ___ ____ _    ____ _  _ ___ 
  | \| |-__ _\_  |  |___ |___ [__] |__| |__\  AIO 103
 
 #END_HOST:nextcloud
-
-
 #START_HOST:plex
  ___  _    ____ __ __  ___ _  _ __           
  |--' |___ |-__ _ \__  104
 
 #END_HOST:plex
-
-
 #START_HOST:tunnel
  ___ _  _ __ _ __ _ ____ _          
   |  |__| | \| | \| |-__ |___
 
 #END_HOST:tunnel
-
-
 #START_HOST:dumb
  ____ _ _   _ ____ __ _  ___
  |--❬ |  \ /  |-__ | \|  105
 
 #END_HOST:dumb
-
-
 #START_HOST:docker
  ___  ____ ____ _  _ ____ ____
  |__\ [__] |___ |-:_ |-__ |--<
 
 #END_HOST:docker
-
-
 #START_HOST:luthen
  _    _  _ ___ _  _ ____ __ _
  |___ |__|  |  |--| |-__ | \|
 
 #END_HOST:luthen
-
-
