@@ -18,6 +18,7 @@ STATIC_MOTD="/etc/motd" # path to the static MOTD file
 download_host_db() {
     echo "Attempting to download host-db from $HOST_DB..."
     # use curl to download the file silently (-s) and fail fast on errors (-f)
+    # Removed -s and -f for debugging, but you can add them back if you prefer silent operation
     if ! curl -L "$HOST_DB" -o "$LOCAL_HOST_DB_PATH"; then
         echo "Error: Failed to download host-db from GitHub. Please check the URL and your network connection."
         # exit the script if the host-db cannot be downloaded, as it's critical
@@ -128,8 +129,8 @@ create_custom_motd() {
     # if no custom banner found, use figlet
     if [[ -z "$custom_banner" ]]; then
         echo "No custom banner found for $hostname in $LOCAL_HOST_DB_PATH. Using figlet."
-        # Use figlet to generate the banner without clearing the screen here
-        custom_banner=$(figlet -f sliver.flf "${hostname}" && echo "")
+        # Use figlet to generate the banner. Removed '&& echo ""' as figlet already adds a newline.
+        custom_banner=$(figlet -f sliver.flf "${hostname}")
     fi
 
     # create the 99-custom script
@@ -148,9 +149,13 @@ if ! command -v lolcat &> /dev/null; then
     printf "%b" "$custom_banner"
 else
     # Added --force to ensure color output even when not directly to a TTY
-    # Use printf to properly interpret newlines in the banner
-    printf "%b" "$custom_banner" | lolcat --force && echo ""
+    # Removed '&& echo ""' here, as printf with %b and the banner's existing newlines are sufficient.
+    printf "%b" "$custom_banner" | lolcat --force
 fi
+
+# Add a single blank line for spacing after the banner, if desired.
+# If you want NO blank line after the banner, remove the line below.
+echo ""
 
 EOF
 
